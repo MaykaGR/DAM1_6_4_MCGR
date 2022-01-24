@@ -16,7 +16,10 @@ val l = LogManager.getLogManager().getLogger("").apply { level = Level.ALL }
 /**
  * Clase para el catálogo de libros xml
  */
-data class CatalogoLibrosXML(val cargador: String){
+data class CatalogoLibrosXML(private val cargador: String){
+    /**
+     * @param cargador: recibe la ruta del documento xml
+     */
     val doc : Document? = try{readXml(cargador)}catch(e:Exception){
         l.warning("Vacío o erróneo")
         null}
@@ -26,13 +29,17 @@ data class CatalogoLibrosXML(val cargador: String){
 
     /**
      * Función para crear la representación del xml
+     * @param pathName: recibe la ruta para crear el Document
+     * @returns devuelve el Document creado
      */
-    fun readXml(pathName: String): Document {
+    private fun readXml(pathName: String): Document {
         val xmlFile = File(pathName)
         return  DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(xmlFile)}
 
     /**
      *  Función para ver si existe libro
+     *  @param idLibro: recibe el id del libro sobre el que queremos preguntar
+     *  @returns devuelve tru en caso de que exista
      */
     fun existeLibro(idLibro: String): Boolean{
         var bool = false
@@ -51,7 +58,7 @@ data class CatalogoLibrosXML(val cargador: String){
     /**
      * Función para obtener los nodos
      */
-    fun obtenerListaNodosPorNombre( tagName: String): MutableList<Node>
+    private fun obtenerListaNodosPorNombre( tagName: String): MutableList<Node>
     {
         //Le he puesto lo de "!!" porque me dijiste en clase que se lo pusiera
         val bookList: NodeList = doc?.getElementsByTagName(tagName) !!
@@ -63,7 +70,7 @@ data class CatalogoLibrosXML(val cargador: String){
     /**
      * Función para obtener los atributos
      */
-    fun obtenerAtributosEnMapKV(e: Element ):MutableMap<String, String>
+    private fun obtenerAtributosEnMapKV(e: Element ):MutableMap<String, String>
     {
         var lista = obtenerListaNodosPorNombre("book")
         val mMap = mutableMapOf<String, String>()
@@ -74,6 +81,8 @@ data class CatalogoLibrosXML(val cargador: String){
     }
     /**
      *  Función para obtener los datos de un libro por su id
+     *  @param idLibro: recibe el id del libro sobre el que queremos preguntar
+     *  @returns devuelve todos los datos del libro
      */
     fun infoLibro(idLibro:String): Map<String, MutableMap<String, String>> {
         val lista = obtenerListaNodosPorNombre("book")
@@ -102,8 +111,6 @@ data class CatalogoLibrosXML(val cargador: String){
 }
 fun main() {
     var xmlDoc = CatalogoLibrosXML("C:\\Users\\Mayka\\Documents\\GitHub\\eje5-4\\eje5-4\\catalogo.xml")
-    var lista = xmlDoc.obtenerListaNodosPorNombre("book")
-    var mMap: MutableMap<String,String> = mutableMapOf()
     println(xmlDoc.existeLibro("bk101"))
     println(xmlDoc.existeLibro("bg202"))
     println(xmlDoc.infoLibro("[bk102]"))
