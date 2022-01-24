@@ -1,0 +1,17 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:////PointingToDeclaration/ej6_4/[root]/index.html
+$dokka.location:/CatalogoLibrosXML///PointingToDeclaration/ej6_4/[root]/-catalogo-libros-x-m-l/index.html
+$dokka.location:/CatalogoLibrosXML/CatalogoLibrosXML/#kotlin.String/PointingToDeclaration/ej6_4/[root]/-catalogo-libros-x-m-l/-catalogo-libros-x-m-l.html
+$dokka.location:/CatalogoLibrosXML/existeLibro/#kotlin.String/PointingToDeclaration/ej6_4/[root]/-catalogo-libros-x-m-l/existe-libro.html
+$dokka.location:/CatalogoLibrosXML/getCargador/#/PointingToDeclaration/ej6_4/[root]/-catalogo-libros-x-m-l/get-cargador.html
+$dokka.location:/CatalogoLibrosXML/getDoc/#/PointingToDeclaration/ej6_4/[root]/-catalogo-libros-x-m-l/get-doc.html
+$dokka.location:/CatalogoLibrosXML/infoLibro/#kotlin.String/PointingToDeclaration/ej6_4/[root]/-catalogo-libros-x-m-l/info-libro.html
+$dokka.location:/CatalogoLibrosXML/obtenerAtributosEnMapKV/#org.w3c.dom.Element/PointingToDeclaration/ej6_4/[root]/-catalogo-libros-x-m-l/obtener-atributos-en-map-k-v.html
+$dokka.location:/CatalogoLibrosXML/obtenerListaNodosPorNombre/#kotlin.String/PointingToDeclaration/ej6_4/[root]/-catalogo-libros-x-m-l/obtener-lista-nodos-por-nombre.html
+$dokka.location:/CatalogoLibrosXML/readXml/#kotlin.String/PointingToDeclaration/ej6_4/[root]/-catalogo-libros-x-m-l/read-xml.html
+$dokka.location:/MainKt///PointingToDeclaration/ej6_4/[root]/-main-kt/index.html
+$dokka.location:/MainKt/getL/#/PointingToDeclaration/ej6_4/[root]/-main-kt/get-l.html
+$dokka.location:/MainKt/main/#/PointingToDeclaration/ej6_4/[root]/-main-kt/main.html
+
+

@@ -32,8 +32,7 @@ tasks.withType<KotlinCompile>() {
 tasks.withType<DokkaTask>().configureEach {
     dokkaSourceSets {
         named("main") {
-            moduleName.set("Dokka Gradle Example")
-            includes.from("Module.md")
+            includes.from("src\\main\\kotlin\\Main.kt")
             sourceLink {
                 localDirectory.set(file("src/main/kotlin"))
                 remoteUrl.set(URL("https://github.com/MaykaGR/DAM1_6_4_MCGR/blob/main/ej6_4/src/main/kotlin/Main.kt"
