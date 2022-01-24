@@ -1,4 +1,4 @@
-Package un5.eje5_4
+//Package un5.eje5_4
 
 import org.w3c.dom.Document
 import org.w3c.dom.Element
@@ -13,7 +13,9 @@ import java.util.logging.LogManager
 val l = LogManager.getLogManager().getLogger("").apply { level = Level.ALL }
 
 
-//Clase para el catálogo de libros xml
+/**
+ * Clase para el catálogo de libros xml
+ */
 data class CatalogoLibrosXML(val cargador: String){
     val doc : Document? = try{readXml(cargador)}catch(e:Exception){
         l.warning("Vacío o erróneo")
@@ -21,11 +23,17 @@ data class CatalogoLibrosXML(val cargador: String){
     init{
 
     }
-    // Función para crear la representación del xml
+
+    /**
+     * Función para crear la representación del xml
+     */
     fun readXml(pathName: String): Document {
         val xmlFile = File(pathName)
         return  DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(xmlFile)}
-    // Función para ver si existe libro
+
+    /**
+     *  Función para ver si existe libro
+     */
     fun existeLibro(idLibro: String): Boolean{
         var bool = false
         var lista = obtenerListaNodosPorNombre("book")
@@ -40,7 +48,9 @@ data class CatalogoLibrosXML(val cargador: String){
         }
 
     }
-    //Función para obtener los nodos
+    /**
+     * Función para obtener los nodos
+     */
     fun obtenerListaNodosPorNombre( tagName: String): MutableList<Node>
     {
         //Le he puesto lo de "!!" porque me dijiste en clase que se lo pusiera
@@ -50,7 +60,9 @@ data class CatalogoLibrosXML(val cargador: String){
             lista.add(bookList.item(i))
         return lista
     }
-    //Función para obtener los atributos
+    /**
+     * Función para obtener los atributos
+     */
     fun obtenerAtributosEnMapKV(e: Element ):MutableMap<String, String>
     {
         var lista = obtenerListaNodosPorNombre("book")
@@ -60,7 +72,9 @@ data class CatalogoLibrosXML(val cargador: String){
                 mMap.put(e.attributes.item(j).nodeValue,e.attributes.item(j).nodeName)}
         return mMap
     }
-    //Función para obtener los datos de un libro por su id
+    /**
+     *  Función para obtener los datos de un libro por su id
+     */
     fun infoLibro(idLibro:String): Map<String, MutableMap<String, String>> {
         val lista = obtenerListaNodosPorNombre("book")
         var mMap: MutableMap<String,MutableMap<String,String>> = mutableMapOf()
