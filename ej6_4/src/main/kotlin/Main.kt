@@ -18,7 +18,7 @@ val l = LogManager.getLogManager().getLogger("").apply { level = Level.ALL }
  */
 data class CatalogoLibrosXML(private val cargador: String){
     /**
-     * @param cargador: recibe la ruta del documento xml
+     * parámetro- cargador: recibe la ruta del documento xml
      */
     val doc : Document? = try{readXml(cargador)}catch(e:Exception){
         l.warning("Vacío o erróneo")
@@ -29,8 +29,8 @@ data class CatalogoLibrosXML(private val cargador: String){
 
     /**
      * Función para crear la representación del xml
-     * @param pathName: recibe la ruta para crear el Document
-     * @returns devuelve el Document creado
+     * parámetro- pathName: recibe la ruta para crear el Document
+     *  devuelve el Document creado
      */
     private fun readXml(pathName: String): Document {
         val xmlFile = File(pathName)
@@ -38,8 +38,8 @@ data class CatalogoLibrosXML(private val cargador: String){
 
     /**
      *  Función para ver si existe libro
-     *  @param idLibro: recibe el id del libro sobre el que queremos preguntar
-     *  @returns devuelve tru en caso de que exista
+     *  parámetro- idLibro: recibe el id del libro sobre el que queremos preguntar
+     *   devuelve tru en caso de que exista
      */
     fun existeLibro(idLibro: String): Boolean{
         var bool = false
@@ -81,8 +81,8 @@ data class CatalogoLibrosXML(private val cargador: String){
     }
     /**
      *  Función para obtener los datos de un libro por su id
-     *  @param idLibro: recibe el id del libro sobre el que queremos preguntar
-     *  @returns devuelve todos los datos del libro
+     *  parámetro- idLibro: recibe el id del libro sobre el que queremos preguntar
+     *   devuelve todos los datos del libro
      */
     fun infoLibro(idLibro:String): Map<String, MutableMap<String, String>> {
         val lista = obtenerListaNodosPorNombre("book")
