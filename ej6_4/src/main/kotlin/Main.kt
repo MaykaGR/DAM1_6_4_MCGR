@@ -39,7 +39,7 @@ data class CatalogoLibrosXML(private val cargador: String){
     /**
      *  Función para ver si existe libro
      *  parámetro- idLibro: recibe el id del libro sobre el que queremos preguntar
-     *   devuelve tru en caso de que exista
+     *   devuelve true en caso de que exista
      */
     fun existeLibro(idLibro: String): Boolean{
         var bool = false
